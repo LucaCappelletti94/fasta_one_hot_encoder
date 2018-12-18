@@ -1,0 +1,10 @@
+README.rst
+setup.py
+fasta_one_hot_encoder/__init__.py
+fasta_one_hot_encoder/__version__.py
+fasta_one_hot_encoder/fasta_one_hot_encoder.py
+fasta_one_hot_encoder.egg-info/PKG-INFO
+fasta_one_hot_encoder.egg-info/SOURCES.txt
+fasta_one_hot_encoder.egg-info/dependency_links.txt
+fasta_one_hot_encoder.egg-info/requires.txt
+fasta_one_hot_encoder.egg-info/top_level.txt

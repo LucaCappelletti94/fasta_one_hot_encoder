@@ -1,0 +1,9 @@
+numpy
+tqdm
+sklearn
+
+[test]
+pytest
+pytest-cov
+coveralls
+numpy
