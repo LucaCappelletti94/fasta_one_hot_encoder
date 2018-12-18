@@ -4,3 +4,7 @@
 __pycache__/
 
 \.vscode/
+
+\.coverage
+
+coverage\.xml
