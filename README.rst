@@ -2,7 +2,7 @@ Fasta One-Hot Encoder
 =================================
 |travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
 
-Simple python to one-hot encode fasta files.
+Simple python to lazily one-hot encode fasta files using multiple processes.
 
 Installation
 ---------------
