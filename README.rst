@@ -72,6 +72,14 @@ One-hot encode to kmers of given length.
 
 Obtained results should look like:
 
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+|   | aa | ac | ag | at | ca | cc | cg | ct | ga | gc | gg | gt | ta | tc | tg | tt |
++===+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+
+| 0 | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  |
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+| 1 | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder.png
    :target: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder
 
