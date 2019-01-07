@@ -18,6 +18,7 @@ Examples
 Bases
 ~~~~~~~~~~~~~~~~~~
 |bases|
+
 One-hot encode to bases.
 
 .. code:: python
@@ -37,16 +38,20 @@ One-hot encode to bases.
 
 Obtained results should look like:
 
-| ,a,c,g,t  | 
-|-----------| 
-| 0,0,0,1,0 | 
-| 1,0,1,0,0 | 
-| 2,0,1,0,0 | 
-
++---+---+---+---+---+
+|   | a | c | g | t |
++===+===+===+===+===+
+| 0 | 0 | 0 | 1 | 0 |
++---+---+---+---+---+
+| 1 | 0 | 1 | 0 | 0 |
++---+---+---+---+---+
+| 2 | 0 | 1 | 0 | 0 |
++---+---+---+---+---+
 
 Kmers
 ~~~~~~~~~~~~~~~~~~
 |kmers|
+
 One-hot encode to kmers of given length.
 
 .. code:: python
