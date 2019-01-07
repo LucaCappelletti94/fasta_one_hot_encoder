@@ -17,10 +17,7 @@ Examples
 
 Bases
 ~~~~~~~~~~~~~~~~~~
-
-<p align="center">
-  <img width="200" src="https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true"/>
-</p>
+|bases|
 
 One-hot encode to bases.
 
@@ -53,10 +50,7 @@ Obtained results should look like:
 
 Kmers
 ~~~~~~~~~~~~~~~~~~
-
-<p align="center">
-  <img width="600" src="https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png"/>
-</p>
+|kmers|
 
 One-hot encode to kmers of given length.
 
@@ -101,6 +95,12 @@ Obtained results should look like:
 .. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/25fb7c6119e188dbd12c/maintainability
    :target: https://codeclimate.com/github/LucaCappelletti94/fasta_one_hot_encoder/maintainability
    :alt: Maintainability
+
+.. |bases| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true
+   :alt: Bases
+
+.. |kmers| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png
+   :alt: Kmers
 
 .. |pip| image:: https://badge.fury.io/py/fasta_one_hot_encoder.svg
     :target: https://badge.fury.io/py/fasta_one_hot_encoder
