@@ -85,7 +85,7 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     tests_require=test_deps,
-    install_requires=['numpy', 'tqdm', 'sklearn'],
+    install_requires=['numpy', 'tqdm', 'sklearn', 'pandas'],
     extras_require=extras,
 )
 
