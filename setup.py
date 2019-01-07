@@ -28,7 +28,7 @@ def find_version(*file_paths):
 
 __version__ = find_version("fasta_one_hot_encoder", "__version__.py")
 
-test_deps = ['pytest', 'pytest-cov', 'coveralls', 'numpy']
+test_deps = ['pytest', 'pytest-cov', 'coveralls', 'numpy', 'pandas']
 
 extras = {
     'test': test_deps,
