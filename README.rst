@@ -17,6 +17,7 @@ Examples
 
 Bases
 ~~~~~~~~~~~~~~~~~~
+
 <p align="center">
   <img width="200" src="https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true"/>
 </p>
@@ -52,6 +53,7 @@ Obtained results should look like:
 
 Kmers
 ~~~~~~~~~~~~~~~~~~
+
 <p align="center">
   <img width="600" src="https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png"/>
 </p>
