@@ -1,5 +1,5 @@
 """Create a new fasta one hot encoder."""
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from multiprocessing import Pool, cpu_count
 import os
 import itertools
@@ -35,14 +35,16 @@ class FastaOneHotEncoder:
         self._kmers_length = kmers_length
         if self._processes == -1:
             self._processes = cpu_count()
-        self._onehot_encoder = OneHotEncoder(categories='auto', **kwargs)
-        self._onehot_encoder.fit(
-            self._get_combinations(nucleotides).reshape(-1, 1)
+        self._label_encoder = LabelEncoder()
+        self._onehot_encoder = OneHotEncoder(**kwargs)
+        self._label_encoder.fit(self._get_combinations(nucleotides))
+        self._onehot_encoder.fit(self._transform(
+            self._get_combinations(nucleotides))
         )
 
     @property
     def classes(self)->List[str]:
-        return self._onehot_encoder.categories_
+        return self._label_encoder.classes_
 
     def _get_combinations(self, alphabet: str)->np.array:
         return np.array([
@@ -63,9 +65,14 @@ class FastaOneHotEncoder:
             self._to_kmers(self._to_lower(sequence))
         )
 
+    def _transform(self, sequence: np.array) -> np.array:
+        return self._label_encoder.transform(
+            sequence
+        ).reshape(-1, 1)
+
     def _task(self, sequence: str) -> np.array:
         return self._onehot_encoder.transform(
-            self._to_array(sequence).reshape(-1, 1)
+            self._transform(self._to_array(sequence))
         )
 
     def _is_new_sequence(self, row: str):

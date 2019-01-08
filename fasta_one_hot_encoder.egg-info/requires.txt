@@ -1,9 +1,11 @@
 numpy
 tqdm
 sklearn
+pandas
 
 [test]
 pytest
 pytest-cov
 coveralls
 numpy
+pandas

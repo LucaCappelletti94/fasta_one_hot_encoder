@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: fasta-one-hot-encoder
-Version: 1.0.0
+Version: 1.1.0
 Summary: Simple python to lazily one-hot encode fasta files using multiple processes.
 Home-page: https://github.com/LucaCappelletti94/fasta_one_hot_encoder
 Author: Luca Cappelletti
@@ -10,7 +10,7 @@ Description: Fasta One-Hot Encoder
         =================================
         |travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
         
-        Simple python to one-hot encode fasta files.
+        Simple python to lazily one-hot encode fasta files using multiple processes, either single bases or considering arbitrary kmers.
         
         Installation
         ---------------
@@ -20,22 +20,73 @@ Description: Fasta One-Hot Encoder
         
             pip installed fasta_one_hot_encoder
         
-        Example
+        Examples
         ---------------
+        
+        Bases
+        ~~~~~~~~~~~~~~~~~~
+        |bases|
+        
+        One-hot encode to bases.
         
         .. code:: python
         
             from fasta_one_hot_encoder import FastaOneHotEncoder
-            import numpy as np
         
             encoder = FastaOneHotEncoder(
-                nucleotides = "acgtn",
-                lower = False
+                nucleotides = "acgt",
+                lower = True,
+                sparse = False,
+                handle_unknown="ignore"
             )
             path = "test_data/my_test_fasta.fa"
-            encoded = encoder.transform(path, verbose=True)
-            np.save(path, encoded)
+            encoder.transform_to_df(path, verbose=True).to_csv(
+                "my_result.csv"
+            )
         
+        Obtained results should look like:
+        
+        +---+---+---+---+---+
+        |   | a | c | g | t |
+        +===+===+===+===+===+
+        | 0 | 0 | 0 | 1 | 0 |
+        +---+---+---+---+---+
+        | 1 | 0 | 1 | 0 | 0 |
+        +---+---+---+---+---+
+        | 2 | 0 | 1 | 0 | 0 |
+        +---+---+---+---+---+
+        
+        Kmers
+        ~~~~~~~~~~~~~~~~~~
+        |kmers|
+        
+        One-hot encode to kmers of given length.
+        
+        .. code:: python
+        
+            from fasta_one_hot_encoder import FastaOneHotEncoder
+        
+            encoder = FastaOneHotEncoder(
+                nucleotides = "acgt",
+                kmers_length=2,
+                lower = True,
+                sparse = False,
+                handle_unknown="ignore"
+            )
+            path = "test_data/my_test_fasta.fa"
+            encoder.transform_to_df(path, verbose=True).to_csv(
+                "my_result.csv"
+            )
+        
+        Obtained results should look like:
+        
+        +---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+        |   | aa | ac | ag | at | ca | cc | cg | ct | ga | gc | gg | gt | ta | tc | tg | tt |
+        +===+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+
+        | 0 | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  |
+        +---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+        | 1 | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
+        +---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
         
         .. |travis| image:: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder.png
            :target: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder
@@ -53,8 +104,15 @@ Description: Fasta One-Hot Encoder
            :target: https://codeclimate.com/github/LucaCappelletti94/fasta_one_hot_encoder/maintainability
            :alt: Maintainability
         
+        .. |bases| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true
+           :alt: Bases
+        
+        .. |kmers| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png
+           :alt: Kmers
+        
         .. |pip| image:: https://badge.fury.io/py/fasta_one_hot_encoder.svg
             :target: https://badge.fury.io/py/fasta_one_hot_encoder
+        
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: License :: OSI Approved :: MIT License
