@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: fasta-one-hot-encoder
-Version: 1.2.0
+Version: 1.2.1
 Summary: Simple python to lazily one-hot encode fasta files using multiple processes.
 Home-page: https://github.com/LucaCappelletti94/fasta_one_hot_encoder
 Author: Luca Cappelletti
