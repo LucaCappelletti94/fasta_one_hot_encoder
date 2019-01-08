@@ -1,5 +1,6 @@
 from fasta_one_hot_encoder import FastaOneHotEncoder
 import filecmp
+import os
 
 
 def test_fasta_one_hot_encoder_pandas():
@@ -11,3 +12,4 @@ def test_fasta_one_hot_encoder_pandas():
         "test_data/new_pandas.csv",
         "test_data/expected_pandas.csv"
     )
+    os.remove("test_data/new_pandas.csv")

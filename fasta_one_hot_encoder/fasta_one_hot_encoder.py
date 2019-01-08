@@ -103,7 +103,7 @@ class FastaOneHotEncoder:
             verbose:bool=False, whetever to show progresses.
         """
         return pd.DataFrame(
-            self.transform(path, verbose)[0],
+            np.vstack(self.transform(path, verbose)),
             columns=self.classes,
             dtype='int'
         )
