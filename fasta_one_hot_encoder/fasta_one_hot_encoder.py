@@ -24,12 +24,6 @@ class FastaOneHotEncoder:
             lower:bool = True, whetever to convert sequences to lowercase.
             processes:int = -1, number of processes to use, -1 to use all available cores.
         """
-        assert isinstance(nucleotides, str)
-        assert isinstance(kmers_length, int)
-        assert kmers_length >= 1
-        assert isinstance(lower, bool)
-        assert isinstance(processes, int)
-        assert processes == -1 or processes > 1
         self._processes = processes
         self._lower = lower
         self._kmers_length = kmers_length
@@ -41,10 +35,10 @@ class FastaOneHotEncoder:
         )
 
     @property
-    def classes(self)->List[str]:
+    def classes(self) -> List[str]:
         return self._onehot_encoder.categories_
 
-    def _get_combinations(self, alphabet: str)->np.array:
+    def _get_combinations(self, alphabet: str) -> np.array:
         return np.array([
             ''.join(i) for i in itertools.product(alphabet, repeat=self._kmers_length)
         ])
@@ -52,7 +46,7 @@ class FastaOneHotEncoder:
     def _to_lower(self, sequence: str) -> np.array:
         return sequence.lower() if self._lower else sequence
 
-    def _to_kmers(self, sequence: str)->List[str]:
+    def _to_kmers(self, sequence: str) -> List[str]:
         return [
             sequence[i:i+self._kmers_length]
             for i in range(len(sequence)-self._kmers_length+1)
@@ -88,18 +82,14 @@ class FastaOneHotEncoder:
             path:str, path to fasta to one-hot encode.
             verbose:bool=False, whetever to show progresses.
         """
-        assert isinstance(path, str)
-        assert isinstance(verbose, bool)
-        assert os.path.exists(path)
         with Pool(self._processes) as p:
             generator = p.imap(self._task, self._task_generator(path))
             if verbose:
                 generator = tqdm(generator)
-            result =  np.stack(list(generator))
+            result = np.stack(list(generator))
             p.close()
             p.join()
         return result
-            
 
     def transform_to_df(self, path: str, verbose: bool = False) -> pd.DataFrame:
         """Return pandas dataframe representing one hot encoding of fasta at given path.

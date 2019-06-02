@@ -1,24 +1,30 @@
 Metadata-Version: 2.1
 Name: fasta-one-hot-encoder
-Version: 1.2.1
-Summary: Simple python to lazily one-hot encode fasta files using multiple processes.
+Version: 1.2.2
+Summary: Simple python to lazily one-hot encode fasta files using multiple processes, either single bases or considering arbitrary kmers.
 Home-page: https://github.com/LucaCappelletti94/fasta_one_hot_encoder
 Author: Luca Cappelletti
 Author-email: cappelletti.luca94@gmail.com
 License: MIT
-Description: Fasta One-Hot Encoder
-        =================================
-        |travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
+Description: fasta_one_hot_encoder
+        =========================================================================================
+        |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
         
         Simple python to lazily one-hot encode fasta files using multiple processes, either single bases or considering arbitrary kmers.
         
-        Installation
-        ---------------
-        Simply run:
+        How do I install this package?
+        ----------------------------------------------
+        As usual, just download it using pip:
         
-        .. code:: bash
+        .. code:: shell
         
-            pip installed fasta_one_hot_encoder
+            pip install fasta_one_hot_encoder
+        
+        Tests Coverage
+        ----------------------------------------------
+        Since some software handling coverages sometime get slightly different results, here's three of them:
+        
+        |coveralls| |sonar_coverage| |code_climate_coverage|
         
         Examples
         ---------------
@@ -88,33 +94,53 @@ Description: Fasta One-Hot Encoder
         | 1 | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
         +---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
         
-        .. |travis| image:: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder.png
-           :target: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder
-        
-        .. |sonar_quality| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=alert_status
-            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
-        
-        .. |sonar_maintainability| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=sqale_rating
-            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
-        
-        .. |sonar_coverage| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=coverage
-            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
-        
-        .. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/25fb7c6119e188dbd12c/maintainability
-           :target: https://codeclimate.com/github/LucaCappelletti94/fasta_one_hot_encoder/maintainability
-           :alt: Maintainability
-        
         .. |bases| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true
            :alt: Bases
         
         .. |kmers| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png
            :alt: Kmers
         
+        .. |travis| image:: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder.png
+           :target: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder
+           :alt: Travis CI build
+        
+        .. |sonar_quality| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=alert_status
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
+            :alt: SonarCloud Quality
+        
+        .. |sonar_maintainability| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=sqale_rating
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
+            :alt: SonarCloud Maintainability
+        
+        .. |sonar_coverage| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_fasta_one_hot_encoder&metric=coverage
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_fasta_one_hot_encoder
+            :alt: SonarCloud Coverage
+        
+        .. |coveralls| image:: https://coveralls.io/repos/github/LucaCappelletti94/fasta_one_hot_encoder/badge.svg?branch=master
+            :target: https://coveralls.io/github/LucaCappelletti94/fasta_one_hot_encoder?branch=master
+            :alt: Coveralls Coverage
+        
         .. |pip| image:: https://badge.fury.io/py/fasta_one_hot_encoder.svg
             :target: https://badge.fury.io/py/fasta_one_hot_encoder
+            :alt: Pypi project
         
+        .. |downloads| image:: https://pepy.tech/badge/fasta_one_hot_encoder
+            :target: https://pepy.tech/badge/fasta_one_hot_encoder
+            :alt: Pypi total project downloads 
+        
+        .. |codacy|  image:: https://api.codacy.com/project/badge/Grade/b95f6c430646485c82a1f674253f4d42
+            :target: https://www.codacy.com/app/LucaCappelletti94/fasta_one_hot_encoder?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LucaCappelletti94/fasta_one_hot_encoder&amp;utm_campaign=Badge_Grade
+            :alt: Codacy Maintainability
+        
+        .. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/7c5ae881132b6622be2b/maintainability
+            :target: https://codeclimate.com/github/LucaCappelletti94/fasta_one_hot_encoder/maintainability
+            :alt: Maintainability
+        
+        .. |code_climate_coverage| image:: https://api.codeclimate.com/v1/badges/7c5ae881132b6622be2b/test_coverage
+            :target: https://codeclimate.com/github/LucaCappelletti94/fasta_one_hot_encoder/test_coverage
+            :alt: Code Climate Coverate
 Platform: UNKNOWN
-Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 3 - Alpha
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
 Provides-Extra: test
