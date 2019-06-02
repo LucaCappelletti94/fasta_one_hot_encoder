@@ -18,7 +18,79 @@ Since some software handling coverages sometime get slightly different results, 
 
 |coveralls| |sonar_coverage| |code_climate_coverage|
 
-AFTER
+Examples
+---------------
+
+Bases
+~~~~~~~~~~~~~~~~~~
+|bases|
+
+One-hot encode to bases.
+
+.. code:: python
+
+    from fasta_one_hot_encoder import FastaOneHotEncoder
+
+    encoder = FastaOneHotEncoder(
+        nucleotides = "acgt",
+        lower = True,
+        sparse = False,
+        handle_unknown="ignore"
+    )
+    path = "test_data/my_test_fasta.fa"
+    encoder.transform_to_df(path, verbose=True).to_csv(
+        "my_result.csv"
+    )
+
+Obtained results should look like:
+
++---+---+---+---+---+
+|   | a | c | g | t |
++===+===+===+===+===+
+| 0 | 0 | 0 | 1 | 0 |
++---+---+---+---+---+
+| 1 | 0 | 1 | 0 | 0 |
++---+---+---+---+---+
+| 2 | 0 | 1 | 0 | 0 |
++---+---+---+---+---+
+
+Kmers
+~~~~~~~~~~~~~~~~~~
+|kmers|
+
+One-hot encode to kmers of given length.
+
+.. code:: python
+
+    from fasta_one_hot_encoder import FastaOneHotEncoder
+
+    encoder = FastaOneHotEncoder(
+        nucleotides = "acgt",
+        kmers_length=2,
+        lower = True,
+        sparse = False,
+        handle_unknown="ignore"
+    )
+    path = "test_data/my_test_fasta.fa"
+    encoder.transform_to_df(path, verbose=True).to_csv(
+        "my_result.csv"
+    )
+
+Obtained results should look like:
+
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+|   | aa | ac | ag | at | ca | cc | cg | ct | ga | gc | gg | gt | ta | tc | tg | tt |
++===+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+
+| 0 | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  |
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+| 1 | 0  | 0  | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
++---+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+
+.. |bases| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/blob/master/bases.png?raw=true
+   :alt: Bases
+
+.. |kmers| image:: https://github.com/LucaCappelletti94/fasta_one_hot_encoder/raw/master/kmers.png
+   :alt: Kmers
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder.png
    :target: https://travis-ci.org/LucaCappelletti94/fasta_one_hot_encoder
