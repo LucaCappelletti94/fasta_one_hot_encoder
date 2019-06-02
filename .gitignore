@@ -1,14 +1,20 @@
-
-.cache/
-
-__pycache__/
+coverage\.xml
 
 \.vscode/
 
-\.coverage
-
-coverage\.xml
-
 \.DS_Store
 
+\.coverage
+
+__pycache__/
+
+*/__pycache__/*
+
+
+
+.cache/
+
+**/__pycache__/*
+
+.notipy.json
 .coverage.*
