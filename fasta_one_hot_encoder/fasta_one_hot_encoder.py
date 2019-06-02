@@ -1,7 +1,6 @@
 """Create a new fasta one hot encoder."""
 from sklearn.preprocessing import OneHotEncoder
 from multiprocessing import Pool, cpu_count
-import os
 import itertools
 from typing import List
 import numpy as np
@@ -62,7 +61,8 @@ class FastaOneHotEncoder:
             self._to_array(sequence).reshape(-1, 1)
         )
 
-    def _is_new_sequence(self, row: str):
+    @classmethod
+    def _is_new_sequence(cls, row: str):
         return row.startswith(">")
 
     def _task_generator(self, path: str):
