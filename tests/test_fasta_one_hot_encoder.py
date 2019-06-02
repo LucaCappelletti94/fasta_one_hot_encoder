@@ -7,4 +7,7 @@ def test_fasta_one_hot_encoder():
     path = "test_data/my_test_fasta.fa"
     encoded = encoder.transform(path, verbose=True)
 
-    assert np.all(encoded == np.load(path+"-expected.npy"))
+    print(encoded.shape)
+    print(np.load(path+"-expected.npy").shape)
+
+    assert (encoded == np.load(path+"-expected.npy")).all()

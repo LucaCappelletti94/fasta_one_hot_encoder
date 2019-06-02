@@ -95,7 +95,10 @@ class FastaOneHotEncoder:
             generator = p.imap(self._task, self._task_generator(path))
             if verbose:
                 generator = tqdm(generator)
+            p.join()
+            p.close()
             return np.stack(list(generator))
+            
 
     def transform_to_df(self, path: str, verbose: bool = False) -> pd.DataFrame:
         """Return pandas dataframe representing one hot encoding of fasta at given path.
