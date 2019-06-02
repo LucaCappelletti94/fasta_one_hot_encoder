@@ -95,9 +95,10 @@ class FastaOneHotEncoder:
             generator = p.imap(self._task, self._task_generator(path))
             if verbose:
                 generator = tqdm(generator)
-            p.join()
+            result =  np.stack(list(generator))
             p.close()
-            return np.stack(list(generator))
+            p.join()
+        return result
             
 
     def transform_to_df(self, path: str, verbose: bool = False) -> pd.DataFrame:
