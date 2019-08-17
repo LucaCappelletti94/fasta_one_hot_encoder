@@ -112,12 +112,12 @@ Obtained results should look like:
     :target: https://coveralls.io/github/LucaCappelletti94/fasta_one_hot_encoder?branch=master
     :alt: Coveralls Coverage
 
-.. |pip| image:: https://badge.fury.io/py/fasta_one_hot_encoder.svg
-    :target: https://badge.fury.io/py/fasta_one_hot_encoder
+.. |pip| image:: https://badge.fury.io/py/fasta-one-hot-encoder.svg
+    :target: https://badge.fury.io/py/fasta-one-hot-encoder
     :alt: Pypi project
 
-.. |downloads| image:: https://pepy.tech/badge/fasta_one_hot_encoder
-    :target: https://pepy.tech/badge/fasta_one_hot_encoder
+.. |downloads| image:: https://pepy.tech/badge/fasta-one-hot-encoder
+    :target: https://pepy.tech/badge/fasta-one-hot-encoder
     :alt: Pypi total project downloads 
 
 .. |codacy|  image:: https://api.codacy.com/project/badge/Grade/b95f6c430646485c82a1f674253f4d42
